@@ -1,0 +1,31 @@
+version: "3"
+services:
+  nodeshopapi:
+    container_name: nodeshopapi
+    build: .
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "127.0.0.1:8100:8100"
+    depends_on:
+      - postgresshopdb
+    working_dir: /app
+    environment:
+      - APP_PORT=8100
+      - DATABASE_URL=postgres://shop:development_pass@postgresshopdb:5432/shop-api
+
+  postgresshopdb:
+    image: postgres:9.3
+    restart: always
+    container_name: postgresshopdb
+    environment:
+      - POSTGRES_USER=shop
+      - POSTGRES_PASSWORD=development_pass
+      - POSTGRES_DB=shop-api
+    ports:
+      - 65432:5432
+    volumes:
+      - shop_api_data:/data/postgres
+volumes:
+  shop_api_data: {}
