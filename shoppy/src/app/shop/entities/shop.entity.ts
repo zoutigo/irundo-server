@@ -9,6 +9,7 @@ import {
   UpdateDateColumn,
   BeforeUpdate,
   BeforeInsert,
+  DeleteDateColumn,
 } from 'typeorm';
 
 @Entity('shops')
@@ -40,7 +41,7 @@ export class Shop {
   phone: boolean;
 
   @Column('json', {
-    nullable: true,
+    default: [],
   })
   employees: JSON;
 
@@ -58,6 +59,11 @@ export class Shop {
     type: 'date',
   })
   updatedAt: Date;
+
+  @DeleteDateColumn({
+    type: 'date',
+  })
+  deletedAt: Date;
 
   @BeforeUpdate()
   insertUpdate() {
