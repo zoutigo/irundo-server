@@ -13,7 +13,7 @@ services:
     working_dir: /app
     environment:
       - APP_PORT=8100
-      - DATABASE_URL=postgres://shop:development_pass@postgresshopdb:5432/shop-api
+      - DATABASE_URL=postgres://shop:devpass@postgresshopdb:5432/shopdb
 
   postgresshopdb:
     image: postgres:9.3
@@ -21,10 +21,10 @@ services:
     container_name: postgresshopdb
     environment:
       - POSTGRES_USER=shop
-      - POSTGRES_PASSWORD=development_pass
-      - POSTGRES_DB=shop-api
+      - POSTGRES_PASSWORD=devpass
+      - POSTGRES_DB=shopdb
     ports:
-      - 65432:5432
+      - "5500:5432"
     volumes:
       - shop_api_data:/data/postgres
 volumes:
