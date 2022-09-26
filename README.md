@@ -5,7 +5,9 @@ Microservice network for shop orders management
 ## Installation
 
 ```bash
-$ npm install
+$ docker-compose stop
+$ docker-compose rm
+$ docker-compose up --build
 ```
 
 ## Running the app
