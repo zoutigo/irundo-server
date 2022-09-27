@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { DatabaseConfiguration } from './config/orm/database.config';
 import { ShopModule } from './app/shop/shop.module';
 import { CommonModule } from './app/common/common.module';
+import { ProductModule } from './app/product/product.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CommonModule } from './app/common/common.module';
     }),
     ShopModule,
     CommonModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],

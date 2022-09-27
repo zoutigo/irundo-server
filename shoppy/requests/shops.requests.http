@@ -29,7 +29,5 @@ Content-Type: application/json
 DELETE  http://localhost:8100/api/shops/7572e92e-b6e3-4da1-b414-8ca89b8c1019 HTTP/1.1
 Content-Type: application/json
 
-{
-    "isPaused":true
-}
+
 ###

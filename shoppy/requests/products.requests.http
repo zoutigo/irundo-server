@@ -1,0 +1,43 @@
+GET http://localhost:8100/api/products HTTP/1.1
+
+###
+
+GET http://localhost:8100/api/products/8d1c3fa9-c89b-46b0-af7f-73f11f4b749d HTTP/1.1
+
+###
+
+POST http://localhost:8100/api/products HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "La cave de biyem assi",
+    "description":"vente de spiritueux",
+    "price":4578.4,
+    "unit":"u",
+    "isOnCount":false
+
+ 
+}
+
+###
+
+PATCH http://localhost:8100/api/products/18281b22-83a2-4b20-bf53-df4d64f7a8e1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "La maison de la morue",
+    "description":"vente de spiritueux",
+    "price":4978.4,
+    "unit":"l",
+    "isOnCount":true
+
+ 
+}
+
+###
+
+DELETE  http://localhost:8100/api/products/18281b22-83a2-4b20-bf53-df4d64f7a8e1 HTTP/1.1
+Content-Type: application/json
+
+
+###

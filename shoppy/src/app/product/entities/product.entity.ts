@@ -1,6 +1,6 @@
 import moment from 'moment';
 import 'moment-timezone';
-
+import { IsNotEmpty } from 'class-validator';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -9,45 +9,61 @@ import {
   UpdateDateColumn,
   BeforeUpdate,
   BeforeInsert,
+  DeleteDateColumn,
 } from 'typeorm';
 
-@Entity('shops')
-export class Shop {
+@Entity('products')
+export class Product {
   @PrimaryGeneratedColumn('uuid')
   id: number;
 
   @Column('varchar', {
-    nullable: false,
     length: 100,
+    nullable: false,
   })
   name: string;
 
   @Column('varchar', {
-    nullable: false,
     length: 500,
+    nullable: false,
   })
   description: string;
+
+  @Column('decimal', {
+    default: 0,
+  })
+  price: number;
+
+  @Column('enum', {
+    enum: ['u', 'kg', 'l', 'm', 'm3'],
+    default: 'u',
+  })
+  unit: string;
+
+  @Column('decimal', {
+    default: 0,
+  })
+  length: string;
+
+  @Column('decimal', {
+    default: 0,
+  })
+  width: string;
+
+  @Column('decimal', {
+    default: 0,
+  })
+  heigth: string;
+
+  @Column('decimal', {
+    default: 0,
+  })
+  radius: string;
 
   @Column('boolean', {
     default: false,
   })
   isOnCount: boolean;
-
-  @Column('boolean', {
-    default: false,
-  })
-  isPaused: boolean;
-
-  @Column('varchar', {
-    nullable: true,
-    length: 20,
-  })
-  phone: boolean;
-
-  @Column('json', {
-    nullable: true,
-  })
-  employees: JSON;
 
   @Column('json', {
     default: [],
@@ -63,6 +79,12 @@ export class Shop {
     type: 'date',
   })
   updatedAt: Date;
+
+  @DeleteDateColumn({
+    type: 'date',
+    default: null,
+  })
+  deletedAt: Date;
 
   @BeforeUpdate()
   insertUpdate() {
