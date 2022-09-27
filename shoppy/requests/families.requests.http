@@ -1,0 +1,30 @@
+GET http://localhost:8100/api/families HTTP/1.1
+
+###
+GET http://localhost:8100/api/families/eb249cc9-6eac-4cc8-b2a7-7ac9b12bb0d9 HTTP/1.1
+
+###
+POST http://localhost:8100/api/families HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "bars",
+    "description":"vente d'alcool"
+}
+
+###
+
+PATCH  http://localhost:8100/api/families/eb249cc9-6eac-4cc8-b2a7-7ac9b12bb0d9 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"snackbars",
+    "description":"restauration rapide et bar"
+}
+###
+
+DELETE  http://localhost:8100/api/families/76d6dfba-364e-4473-afda-1ffdfbac5031 HTTP/1.1
+Content-Type: application/json
+
+
+###

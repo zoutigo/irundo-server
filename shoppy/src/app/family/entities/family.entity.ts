@@ -1,23 +1,23 @@
-import moment from 'moment';
-import 'moment-timezone';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
+  DeleteDateColumn,
   CreateDateColumn,
   UpdateDateColumn,
   BeforeUpdate,
   BeforeInsert,
-  DeleteDateColumn,
 } from 'typeorm';
+import moment from 'moment';
+import 'moment-timezone';
 
-@Entity('products')
-export class Product {
+@Entity('families')
+export class Family {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
   @Column('varchar', {
-    length: 100,
+    length: 30,
     nullable: false,
   })
   name: string;
@@ -25,49 +25,9 @@ export class Product {
   @Column('varchar', {
     length: 500,
     nullable: false,
+    unique: true,
   })
   description: string;
-
-  @Column('decimal', {
-    default: 0,
-  })
-  price: number;
-
-  @Column('enum', {
-    enum: ['u', 'kg', 'l', 'm', 'm3'],
-    default: 'u',
-  })
-  unit: string;
-
-  @Column('decimal', {
-    default: 0,
-  })
-  length: string;
-
-  @Column('decimal', {
-    default: 0,
-  })
-  width: string;
-
-  @Column('decimal', {
-    default: 0,
-  })
-  heigth: string;
-
-  @Column('decimal', {
-    default: 0,
-  })
-  radius: string;
-
-  @Column('boolean', {
-    default: false,
-  })
-  isOnCount: boolean;
-
-  @Column('json', {
-    default: [],
-  })
-  images: JSON;
 
   @CreateDateColumn({
     type: 'date',
