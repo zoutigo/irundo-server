@@ -1,0 +1,29 @@
+GET http://localhost:8100/api/pcategories HTTP/1.1
+
+###
+GET http://localhost:8100/api/pcategories/55e1502c-524c-4a09-9ed1-6ebe23b9f762 HTTP/1.1
+
+###
+POST http://localhost:8100/api/pcategories HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "diner",
+    "description":"le repas du soir"
+}
+
+###
+
+PATCH  http://localhost:8100/api/pcategories/320cf7ea-15a4-4f20-abfa-74190675d568 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"dessert",
+    "description":"des gourmandises"
+}
+###
+
+DELETE  http://localhost:8100/api/pcategories/320cf7ea-15a4-4f20-abfa-74190675d568 HTTP/1.1
+Content-Type: application/json
+
+###

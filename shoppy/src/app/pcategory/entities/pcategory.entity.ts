@@ -11,8 +11,8 @@ import {
 import moment from 'moment';
 import 'moment-timezone';
 
-@Entity('families')
-export class Family {
+@Entity('pcategories')
+export class Pcategory {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

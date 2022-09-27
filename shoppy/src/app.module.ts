@@ -8,6 +8,7 @@ import { ShopModule } from './app/shop/shop.module';
 import { CommonModule } from './app/common/common.module';
 import { ProductModule } from './app/product/product.module';
 import { FamilyModule } from './app/family/family.module';
+import { PcategoryModule } from './app/pcategory/pcategory.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { FamilyModule } from './app/family/family.module';
     CommonModule,
     ProductModule,
     FamilyModule,
+    PcategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
